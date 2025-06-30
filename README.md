@@ -4,6 +4,10 @@ A clean, responsive **task management app** built with **Vanilla JavaScript**, s
 
 This project is designed to demonstrate practical JavaScript skills and front-end development capabilities, and is ready to be featured in a developer portfolio.
 
+## 🔗Live Demo
+
+https://afkarahamed-task-manager.vercel.app
+
 ---
 
 ## 🚀 Features
