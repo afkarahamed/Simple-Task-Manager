@@ -1,9 +1,10 @@
 class Task {
-  constructor(title, dueDate = null) {
+  constructor(title, dueDate = null, priority = 'low') {
     this.id = Date.now().toString();
     this.title = title;
     this.completed = false;
     this.dueDate = dueDate;
+    this.priority = priority;
   }
 }
 
@@ -51,12 +52,14 @@ class TaskManager {
 
     if (!title) return;
 
-    const newTask = new Task(title, dueDate);
+    const priority = document.getElementById('priority-select').value;
+    const newTask = new Task(title, dueDate, priority);
     this.tasks.push(newTask);
     this.saveTasks();
     this.renderTasks();
     this.input.value = '';
     document.getElementById('due-date').value = '';
+    
 } 
 
   toggleComplete(id) {
@@ -197,6 +200,12 @@ class TaskManager {
     }
 
     titleWrapper.appendChild(due);
+
+
+    const priorityBadge = document.createElement('span');
+    priorityBadge.textContent = task.priority;
+    priorityBadge.className = `priority-badge ${task.priority}`;
+    titleWrapper.appendChild(priorityBadge);
   });
 }
 }

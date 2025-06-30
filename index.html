@@ -19,7 +19,12 @@
           placeholder="Add a new task"
           required
         />
-        <input type="date" id="due-date" />
+        <input type="date" id="due-date" class="due-date-input" />
+        <select id="priority-select">
+            <option value="low">Low Priority</option>
+            <option value="medium">Medium Priority</option>
+            <option value="high">High Priority</option>
+        </select>
         <button type="submit">Add Task</button>
       </form>
       <div id="filters">
