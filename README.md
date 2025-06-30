@@ -48,18 +48,18 @@ This project is designed to demonstrate practical JavaScript skills and front-en
 
 ## 📁 File Structure
 
-📦 task-manager/
-┣ 📦 src → main files
-┣ 📜 index.html → Main HTML structure
-┣ 📜 style.css → Styling including dark mode
-┗ 📜 app.js → JavaScript logic (OOP-based)
+- 📦 task-manager/
+  - ┣ 📦 src → main files
+    - ┣ 📜 index.html → Main HTML structure
+    - ┣ 📜 style.css → Styling including dark mode
+    - ┗ 📜 app.js → JavaScript logic (OOP-based)
 
 ## 💻 How to Use
 
 1. Clone the repository or download the ZIP:
 
    ```bash
-   git clone https://github.com/yourusername/js-oop-task-manager.git
+   git clone https://github.com/afkarahamed/Simple-Task-Manager.git
 
    ```
 
