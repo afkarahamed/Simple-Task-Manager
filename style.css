@@ -72,7 +72,7 @@ button {
   background: #0077ff;
   color: white;
 }
-.centered-heading {
+.main-heading {
     text-align: center;
 }
 
@@ -288,4 +288,55 @@ body.dark-mode #toggle-theme:hover {
 }
 .priority-badge.high {
   background-color: red;
+}
+
+.priority-select{
+    box-sizing: border-box;
+    padding: 7px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+
+
+/*Fixing mobile layout issues*/
+.task-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+}
+
+.task-form input,
+.task-form select,
+.task-form button {
+  flex: 1 1 100%;
+  max-width: 100%;
+}
+
+@media (min-width: 600px) {
+  .task-form input[type="text"] {
+    flex: 2;
+  }
+  .task-form input[type="date"],
+  .task-form select {
+    flex: 1;
+  }
+  .task-form button {
+    flex: none;
+  }
+}
+
+
+@media screen and (max-width: 600px){
+    .toggle-theme {
+        display: block;
+        margin: 0 auto;
+    }
+
+    .main-heading {
+        text-align: center;
+        font-size: 1.8rem;
+        word-break: break-word; /* Prevent awkward breaks */
+    }
 }

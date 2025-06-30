@@ -9,10 +9,10 @@
   <body>
     <div class="container">
       <div class="theme-toggle-container">
-        <button id="toggle-theme">Switch to Dark Mode</button>
+        <button id="toggle-theme" class="toggle-theme">Switch to Dark Mode</button>
       </div>
-      <h1 class="centered-heading">📝 Task Manager</h1>
-      <form id="task-form">
+      <h1 class="main-heading">📝 Task Manager</h1>
+      <form id="task-form" class="task-form">
         <input
           type="text"
           id="task-input"
@@ -20,7 +20,7 @@
           required
         />
         <input type="date" id="due-date" class="due-date-input" />
-        <select id="priority-select">
+        <select id="priority-select" class="priority-select">
             <option value="low">Low Priority</option>
             <option value="medium">Medium Priority</option>
             <option value="high">High Priority</option>
