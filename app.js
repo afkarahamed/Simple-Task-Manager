@@ -1,8 +1,9 @@
 class Task {
-  constructor(title) {
-    this.id = Date.now().toString(); // unique ID
+  constructor(title, dueDate = null) {
+    this.id = Date.now().toString();
     this.title = title;
     this.completed = false;
+    this.dueDate = dueDate; // ✅ now safely assigned
   }
 }
 
@@ -45,14 +46,17 @@ class TaskManager {
   addTask(e) {
     e.preventDefault();
     const title = this.input.value.trim();
+    const dueDate = document.getElementById('due-date').value;
+
     if (!title) return;
 
-    const newTask = new Task(title);
+    const newTask = new Task(title, dueDate);
     this.tasks.push(newTask);
     this.saveTasks();
     this.renderTasks();
     this.input.value = '';
-  }
+    document.getElementById('due-date').value = ''; // clear date input
+} 
 
   toggleComplete(id) {
     const task = this.tasks.find(t => t.id === id);
@@ -174,6 +178,23 @@ class TaskManager {
     li.appendChild(titleWrapper);
     li.appendChild(controls);
     this.list.appendChild(li);
+
+    const due = document.createElement('small');
+    due.textContent = `Due: ${task.dueDate}`;
+    due.style.marginLeft = '10px'; 
+
+    const today = new Date().toISOString().split('T')[0];
+    if (!task.completed && task.dueDate < today) {
+        due.style.color = 'red';
+        due.style.fontWeight = 'bold';
+        due.textContent += ' (Overdue!)';
+    } else if(!task.completed && task.dueDate === today){
+        due.style.color = 'orange';
+        due.style.fontWeight = 'bold';
+        due.textContent += ' (Due Today)';
+    }
+
+    titleWrapper.appendChild(due);
   });
 }
 }
