@@ -66,16 +66,20 @@ This project is designed to demonstrate practical JavaScript skills and front-en
 2. Open index.html in your preferred browser:
    open index.html
 
+##
+
 ⚠️ No build tools or dependencies are required. Pure HTML/CSS/JS.
 
 📦 Planned Improvements
-• 🔍 Real-time search/filter by task title
-• 🔀 Drag-and-drop task reordering using dragstart, drop, dragover
-• 🧾 Export/import tasks as JSON
+
+- 🔍 Real-time search/filter by task title
+- 🔀 Drag-and-drop task reordering using dragstart, drop, dragover
+- 🧾 Export/import tasks as JSON
 
 🙋‍♂️ Author
 
 Built by Afkar Ahamed
-• GitHub: @afkarahamed
-• LinkedIn: https://www.linkedin.com/in/afkar-ahamed/
-• Portfolio: https://afkar-ahamed-portfolio.vercel.app/
+
+- GitHub: @afkarahamed
+- LinkedIn: https://www.linkedin.com/in/afkar-ahamed/
+- Portfolio: https://afkar-ahamed-portfolio.vercel.app/
