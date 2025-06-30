@@ -3,7 +3,7 @@ class Task {
     this.id = Date.now().toString();
     this.title = title;
     this.completed = false;
-    this.dueDate = dueDate; // ✅ now safely assigned
+    this.dueDate = dueDate;
   }
 }
 
@@ -18,10 +18,11 @@ class TaskManager {
 
     this.editPopup = document.getElementById('edit-popup');
     this.editInput = document.getElementById('edit-input');
+    this.editDueDateInput = document.getElementById('edit-due-date');
     this.saveEditBtn = document.getElementById('save-edit');
     this.cancelEditBtn = document.getElementById('cancel-edit');
 
-    this.themeToggleBtn = document.getElementById('toggle-theme'); // 👈 new
+    this.themeToggleBtn = document.getElementById('toggle-theme'); 
     this.editingTaskId = null;
     this.activeFilter = 'all';
 
@@ -29,7 +30,7 @@ class TaskManager {
     this.filters.addEventListener('click', (e) => this.handleFilter(e));
     this.saveEditBtn.addEventListener('click', () => this.saveEdit());
     this.cancelEditBtn.addEventListener('click', () => this.closeEditPopup());
-    this.themeToggleBtn.addEventListener('click', () => this.toggleTheme()); // 👈 new
+    this.themeToggleBtn.addEventListener('click', () => this.toggleTheme()); 
 
     const savedTheme = localStorage.getItem('theme');
     if (savedTheme === 'dark') {
@@ -55,7 +56,7 @@ class TaskManager {
     this.saveTasks();
     this.renderTasks();
     this.input.value = '';
-    document.getElementById('due-date').value = ''; // clear date input
+    document.getElementById('due-date').value = '';
 } 
 
   toggleComplete(id) {
@@ -103,15 +104,16 @@ class TaskManager {
     showEditPopup(task) {
         this.editingTaskId = task.id;
         this.editInput.value = task.title;
+        this.editDueDateInput.value = task.dueDate || '';
         this.editPopup.classList.remove('hidden');
-        this.editInput.focus();
         setTimeout(() => this.editInput.focus(), 100);
-    }
+    }   
 
     saveEdit() {
         const task = this.tasks.find(t => t.id === this.editingTaskId);
         if (task) {
             task.title = this.editInput.value.trim();
+            task.dueDate = this.editDueDateInput.value; 
             this.saveTasks();
             this.renderTasks();
         }
