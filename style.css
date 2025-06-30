@@ -179,3 +179,78 @@ button {
     margin-top: 8px;
   }
 }
+
+/*...................................... the following is teh styling for dark mode ......................................*/
+body.dark-mode {
+  background: #1e1e1e;
+  color: #f5f5f5;
+}
+
+body.dark-mode .container {
+  background: #2c2c2c;
+  box-shadow: 0 10px 25px rgba(255, 255, 255, 0.05);
+}
+
+body.dark-mode input,
+body.dark-mode button {
+  background: #333;
+  color: #f5f5f5;
+  border: 1px solid #666;
+}
+
+body.dark-mode .centered-heading {
+  color: #ffffff;
+}
+
+body.dark-mode #filters button {
+  background: #333;
+  color: #ccc;
+  border: 1px solid #555;
+}
+
+body.dark-mode #filters .active {
+  background: #0077ff;
+  color: #fff;
+}
+
+body.dark-mode .task {
+  border-bottom: 1px solid #444;
+}
+
+body.dark-mode .task.completed span {
+  color: #888;
+  opacity: 0.6;
+}
+
+body.dark-mode .task-title {
+  color: #f0f0f0;
+}
+
+body.dark-mode .task-controls button {
+  background: #555;
+  color: white;
+  border: none;
+}
+
+body.dark-mode .task-controls button:hover {
+  background: #777;
+}
+
+body.dark-mode #edit-popup {
+  background: rgba(0, 0, 0, 0.6);
+}
+
+body.dark-mode .popup-box {
+  background: #2b2b2b;
+  color: white;
+  border: 1px solid #444;
+}
+
+body.dark-mode #toggle-theme {
+  background: #444;
+  color: #fff;
+}
+
+body.dark-mode #toggle-theme:hover {
+  background: #666;
+}

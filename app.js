@@ -15,21 +15,31 @@ class TaskManager {
     this.list = document.getElementById('task-list');
     this.filters = document.getElementById('filters');
 
-    this.form.addEventListener('submit', (e) => this.addTask(e));
-    this.filters.addEventListener('click', (e) => this.handleFilter(e));
-
-    this.activeFilter = 'all';
-    this.renderTasks();
-
     this.editPopup = document.getElementById('edit-popup');
     this.editInput = document.getElementById('edit-input');
     this.saveEditBtn = document.getElementById('save-edit');
     this.cancelEditBtn = document.getElementById('cancel-edit');
 
+    this.themeToggleBtn = document.getElementById('toggle-theme'); // 👈 new
     this.editingTaskId = null;
+    this.activeFilter = 'all';
 
+    this.form.addEventListener('submit', (e) => this.addTask(e));
+    this.filters.addEventListener('click', (e) => this.handleFilter(e));
     this.saveEditBtn.addEventListener('click', () => this.saveEdit());
     this.cancelEditBtn.addEventListener('click', () => this.closeEditPopup());
+    this.themeToggleBtn.addEventListener('click', () => this.toggleTheme()); // 👈 new
+
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'dark') {
+      document.body.classList.add('dark-mode');
+      this.themeToggleBtn.textContent = 'Switch to Light Mode';
+    } else {
+      this.themeToggleBtn.textContent = 'Switch to Dark Mode';
+    }
+
+    // Initial render
+    this.renderTasks();
   }
 
   addTask(e) {
@@ -108,6 +118,13 @@ class TaskManager {
         this.editingTaskId = null;
         this.editInput.value = '';
         this.editPopup.classList.add('hidden');
+    }
+
+    toggleTheme() {
+        document.body.classList.toggle('dark-mode');
+        const isDark = document.body.classList.contains('dark-mode');
+        this.themeToggleBtn.textContent = isDark ? 'Switch to Light Mode' : 'Switch to Dark Mode';
+        localStorage.setItem('theme', isDark ? 'dark' : 'light');   
     }
 
   getFilteredTasks() {
